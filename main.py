@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, request
+from flask import Flask, render_template, redirect
 from binance_average_buy import *
 
 app = Flask(__name__)
