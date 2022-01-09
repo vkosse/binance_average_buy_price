@@ -1,9 +1,3 @@
-# С ценой по времени временем ордеров и транзакций все в порядке! Время можно не изменять.
-
-# Необходимо синхронизировать время с сервером бинанса.
-# Exception has occurred: BinanceAPIException       (note: full exception trace is shown but execution is paused at: <module>)
-# APIError(code=-1021): Timestamp for this request was 1000ms ahead of the server's time.
-
 from binance import Client
 from binance_keys import get_api_keys
 import time

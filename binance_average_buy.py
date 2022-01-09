@@ -8,30 +8,6 @@ from binance_transactions import *
 api_key, api_secret = get_api_keys()
 client = Client(api_key, api_secret)
 
-'''
-def get_user_data(session, query, address):
-    signature = hmac.new(api_secret.encode('utf-8'),
-                         query.encode('utf-8'), hashlib.sha256).hexdigest()
-    url = 'https://api.binance.com'
-    headers = {'X-MBX-APIKEY': api_key}
-    userdata = session.get(
-        f'{url}{address}?{query}&signature={signature}', headers=headers).json()
-    return userdata
-
-
-def get_filled_orders(session, symbol):
-    try:
-        servertime = session.get("https://api.binance.com/api/v1/time").json()
-        timestamp = servertime['serverTime']
-    except:
-        print('Synchronize your clock!')
-    query = f'symbol={symbol}&timestamp={timestamp}&limit=1000'
-    address = '/api/v3/allOrders'
-    orders = get_user_data(query, address)
-    orders = [order for order in orders if order['status'] == 'FILLED']
-    return orders[::-1]
-'''
-
 
 def get_my_assets():
     '''
@@ -110,7 +86,8 @@ def main():
     session = requests.session()
     my_assets = get_my_assets()
     for asset, precision in get_asset_precision(session, my_assets).items():
-        data.append(find_avg(asset, precision, my_assets, transactions_result_data))
+        data.append(find_avg(asset, precision,
+                    my_assets, transactions_result_data))
     session.close()
     return data
 
