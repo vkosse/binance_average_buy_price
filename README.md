@@ -5,4 +5,4 @@ It might be useful for holders which want to know suitable time for buy or sell 
 To see statistics you need to:
 1. Edit binance_keys.py file and paste your binance api key and api secret;
 2. Run main.py for starting local web server;
-3. Tap the 'Sync All' button and wait a few seconds
+3. Tap the 'Sync All' button and wait a few seconds.
