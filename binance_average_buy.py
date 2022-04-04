@@ -27,7 +27,7 @@ def get_asset_precision(session, my_assets):
     precisions = {}
     symbols = []
     for asset in my_assets.keys():
-        if asset != 'USDT':
+        if asset != 'USDT' and asset != 'SOLO':
             symbols.append(f'{asset}USDT')
     symbols_as_str = str(symbols).replace("'", '"').replace(' ', '')
     url = f'https://api.binance.com/api/v3/exchangeInfo?symbols={symbols_as_str}'
